@@ -4,10 +4,11 @@ import Vue from 'vue'
 // 找到的是App.vue文件
 import App from './App'
 import router from './router'
-import './assets/styles/reset.css'
+import 'styles/reset.css'
 // 解决1像素边框问题
-import './assets/styles/border.css'
+import 'styles/border.css'
 import fastClick from 'fastclick'
+import 'styles/iconfont.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
