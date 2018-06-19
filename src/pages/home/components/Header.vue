@@ -5,23 +5,19 @@
         <div class='header-center'>
         <span class='iconfont'>&#xe60b;</span>
         请输入景点</div>
-        <div class='header-right'>{{city}}
+        <router-link to='/city'>
+        <div class='header-right'>北京
         <span class='iconfont'>&#xe64a;</span>
         </div>
+        </router-link>
     </div>
 </template>
 <script>
 
 export default {
-    props:{
-        city:String
-    },
-    data () {
-        return {
-
-        }
-
-    },
+    // props:{
+    //     city:String
+    // },
     name:'Header'
 }
 </script>
@@ -49,5 +45,6 @@ export default {
             width:1.24rem
             float:right
             text-align:center
+            color:#fff
 
 </style>
