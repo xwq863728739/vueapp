@@ -1,10 +1,10 @@
 <template>
     <div> 
-        <Header></Header>
-        <home-swiper></home-swiper>
-        <home-icon></home-icon>
-        <home-recommend></home-recommend>
-        <home-weekend></home-weekend>
+        <Header :city='city'></Header>
+        <home-swiper :sList='sList'></home-swiper>
+        <home-icon :iconList='iconList'></home-icon>
+        <home-recommend :rList='rList'></home-recommend>
+        <home-weekend :weekendList='weekendList'></home-weekend>
     </div>
 </template>
 
@@ -14,6 +14,7 @@ import HomeSwiper from './components/Swiper'
 import HomeIcon from './components/HomeIcon'
 import HomeRecommend from './components/HomeRecommend'
 import HomeWeekend from './components/HomeWeekend'
+import axios from 'axios'
 export default {
     name:'Home',
     components:{
@@ -22,6 +23,38 @@ export default {
         HomeIcon,
         HomeRecommend,
         HomeWeekend,
+    },
+    data () {
+        return {
+            city:'',
+            sList : [],
+            iconList:[],
+            rList:[],
+            weekendList:[]
+        }
+    },
+    methods:{
+        getHomeInfo () {
+            // 请求接口数据
+            axios.get('/api/index.json')
+            .then(this.getHomeInfoSucc)
+        },
+        getHomeInfoSucc (res) {
+            console.log(res)
+            // 父组件向子组件传值
+            res = res.data
+            if(res.ret && res.data){
+                const data = res.data
+                this.sList = data.swiperList
+                this.city = data.city
+                this.iconList = data.iconList
+                this.rList = data.recommendList
+                this.weekendList = data.weekendList
+            }
+        }
+    },
+    mounted () {
+        this.getHomeInfo()
     }
 }
 </script>

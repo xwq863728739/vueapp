@@ -1,12 +1,13 @@
 <template>
     <div class='icons'>
-        <swiper >
+        <swiper :options='swiperOption'>
         <swiper-slide v-for='(page,index) of pages' :key='index'>
         <div class='icon' v-for='item of page' :key="item.id">
             <div class='icon-img'>
                 <img :src='item.imgUrl' class='icon-img-content' />
             </div>
-            <span v-text='item.text' class='img-desc'></span>
+            <span v-text='item.desc' class='img-desc'></span>
+            
         </div>
         </swiper-slide>
     </swiper>
@@ -16,19 +17,15 @@
 <script>
 export default {
     name:'HomeIcon',
+    props:{
+        iconList:Array
+    },
     data () {
         return {
-            iconList:[
-                {id:'001',imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',text:'景点门票'},
-                {id:'002',imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',text:'必游榜单'},
-                {id:'003',imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',text:'夏日玩水'},
-                {id:'004',imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',text:'一日游'},
-                {id:'005',imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',text:'景点门票'},
-                {id:'006',imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',text:'必游榜单'},
-                {id:'007',imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',text:'夏日玩水'},
-                {id:'008',imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',text:'一日游'},
-                {id:'008',imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',text:'一日游'},
-            ]
+            swiperOption:{
+                    // 循环滚动
+                    autoplay:false
+                },
         }
     },
     computed:{

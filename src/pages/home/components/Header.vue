@@ -5,7 +5,7 @@
         <div class='header-center'>
         <span class='iconfont'>&#xe60b;</span>
         请输入景点</div>
-        <div class='header-right'>城市
+        <div class='header-right'>{{city}}
         <span class='iconfont'>&#xe64a;</span>
         </div>
     </div>
@@ -13,6 +13,15 @@
 <script>
 
 export default {
+    props:{
+        city:String
+    },
+    data () {
+        return {
+
+        }
+
+    },
     name:'Header'
 }
 </script>

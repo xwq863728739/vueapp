@@ -1,8 +1,9 @@
 <template>
 <div class='wrapper'> 
-    <swiper :options="swiperOption" >
+    <!-- 当sList传进来再创建swiper -->
+    <swiper :options="swiperOption" v-if="showSwiper">
     <!-- slides -->
-    <swiper-slide v-for='(item,index) of swiperList' :key='index'>
+    <swiper-slide v-for='(item,index) of sList' :key='index'>
     <!--这里src需要用绑定方式 :src -->
         <img class='swiper-img'  :src='item.imgUrl' />
     </swiper-slide>
@@ -18,20 +19,24 @@
 <script>
 export default {
     name:'HomeSwiper',
+    props:{
+        sList:Array
+    },
     data () {
-        return {
-            swiperOption:{
-                // 分页的小点
-                pagination:'.swiper-pagination',
-                // 循环滚动
-                loop:true
-            },
-            swiperList:[
-                {id:'001',imgUrl:'https://source.qunarzz.com/site/images/wap/home/recommend/iphoneplus/20180614_CPM_WAP_DE10841.jpg'},
-                {id:'002',imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/bd/8e4a1c3f470d3702.jpg_750x200_f1f0a8c7.jpg'},
-            ]
+       return {
+            swiperOption: {
+                pagination: '.swiper-pagination',
+                loop: true,
+                autoplay: 3000,
+                speed: 1000,
+            }
         }
-    }
+    },
+    computed: {
+        showSwiper () {
+            return this.sList.length
+        }
+  }
 }
 </script>
 
@@ -42,11 +47,11 @@ export default {
     //  给轮播框一个自适应宽高，防止塌陷
     .wrapper
         overflow:hidden
-        width:100%
         height:0
         background:#ccc
-        padding-bottom:24.5%
+        padding-bottom:31.25%
         .swiper-img
             width:100%
+            
 
 </style>

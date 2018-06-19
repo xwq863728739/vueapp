@@ -18,15 +18,12 @@
 <script>
 export default {
     name:'HomeWeekend',
+    props:{
+        weekendList:Array
+    },
     data () {
         return {
-            weekendList:[
-            {id:'001',title:'当地人游深圳1',desc:'当地人带你发现不一样的深圳',imgUrl:'http://img1.qunarzz.com/sight/source/1507/d9/2ddc7652fdba16.jpg_r_640x214_5e62f1a3.jpg'},
-            {id:'002',title:'当地人游深圳2',desc:'当地人带你发现不一样的深圳',imgUrl:'http://img1.qunarzz.com/sight/source/1507/d9/2ddc7652fdba16.jpg_r_640x214_5e62f1a3.jpg'},
-            {id:'003',title:'当地人游深圳3',desc:'当地人带你发现不一样的深圳',imgUrl:'http://img1.qunarzz.com/sight/source/1507/d9/2ddc7652fdba16.jpg_r_640x214_5e62f1a3.jpg'},
-            {id:'004',title:'当地人游深圳4',desc:'当地人带你发现不一样的深圳',imgUrl:'http://img1.qunarzz.com/sight/source/1507/d9/2ddc7652fdba16.jpg_r_640x214_5e62f1a3.jpg'},
-            {id:'005',title:'当地人游深圳5',desc:'当地人带你发现不一样的深圳',imgUrl:'http://img1.qunarzz.com/sight/source/1507/d9/2ddc7652fdba16.jpg_r_640x214_5e62f1a3.jpg'},
-        ]
+
     }
         }
 }
