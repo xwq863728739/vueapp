@@ -21,10 +21,11 @@ export default {
         text-align:center
         color:#fff
         font-size:.32rem
+        position:relative
         .iconfont
-            float:left
             font-size:.32rem
-            text-indent:.16rem
             color:#fff
+            position:absolute
+            left:.16rem
     
 </style>

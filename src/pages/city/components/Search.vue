@@ -24,8 +24,8 @@ export default {
             border-radius:.06rem
             text-align:center
             color:#666
-            padding:0 .1rem
-            // 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+            padding:0 .5rem
+            // 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。可以抵消padding带来的影响
             box-sizing:border-box
 
 
