@@ -28,7 +28,7 @@ export default {
             },
             swiperList:[
                 {id:'001',imgUrl:'https://source.qunarzz.com/site/images/wap/home/recommend/iphoneplus/20180614_CPM_WAP_DE10841.jpg'},
-                {id:'002',imgUrl:'https://source.qunarzz.com/site/images/wap/home/recommend/iphoneplus/20180614_CPM_WAP_DE10841.jpg'},
+                {id:'002',imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/bd/8e4a1c3f470d3702.jpg_750x200_f1f0a8c7.jpg'},
             ]
         }
     }
