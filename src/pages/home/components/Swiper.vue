@@ -2,7 +2,7 @@
 <div class='wrapper'> 
     <swiper :options="swiperOption" >
     <!-- slides -->
-    <swiper-slide v-for='item of swiperList'>
+    <swiper-slide v-for='(item,index) of swiperList' :key='index'>
     <!--这里src需要用绑定方式 :src -->
         <img class='swiper-img'  :src='item.imgUrl' />
     </swiper-slide>
