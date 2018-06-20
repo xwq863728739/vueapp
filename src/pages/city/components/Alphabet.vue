@@ -1,6 +1,6 @@
 <template>
     <div class='list'>
-        <div class='item' v-for='(item,key) of cities' :key='key'>{{key}}</div>
+        <div class='item' v-for='(item,key) of cities' :key='key' @click='handleAlpha'>{{key}}</div>
     </div>
 </template>
 
@@ -9,6 +9,12 @@ export default {
     name:'Alphabet',
     props:{
         cities:Object
+    },
+    methods:{
+        handleAlpha (e) {
+            // 获取到点击元素的值
+            this.$emit('change',e.target.innerText)
+        }
     }
 }
 </script>
