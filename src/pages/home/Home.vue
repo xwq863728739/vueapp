@@ -15,6 +15,7 @@ import HomeIcon from './components/HomeIcon'
 import HomeRecommend from './components/HomeRecommend'
 import HomeWeekend from './components/HomeWeekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
     name:'Home',
     components:{
@@ -30,14 +31,16 @@ export default {
             sList : [],
             iconList:[],
             rList:[],
-            weekendList:[]
+            weekendList:[],
+            localCity:''
         }
     },
     methods:{
         getHomeInfo () {
             // 请求接口数据
-            axios.get('/api/index.json')
+            axios.get('/api/index.json?city='+ this.city)
             .then(this.getHomeInfoSucc)
+            this.localCity = this.city
         },
         getHomeInfoSucc (res) {
             console.log(res)
@@ -53,7 +56,15 @@ export default {
             }
         }
     },
+    computed:{
+        ...mapState(['city'])
+    },
     mounted () {
+        this.getHomeInfo()
+    },
+    // 在keep-alive之后运行
+    activated () {
+        if(this.localCity != this.city)
         this.getHomeInfo()
     }
 }

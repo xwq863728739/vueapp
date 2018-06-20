@@ -6,7 +6,7 @@
     </div>
     <div class='search-list' v-show='keyword' ref='search'>
             <ul>
-                <li class='item border-bottom' v-for='item of list'>{{item.name}}</li>
+                <li class='item border-bottom' v-for='item of list' @click='handleCity(item.name)'>{{item.name}}</li>
                 <li class='item border-bottom nodata' v-show='!list.length'>无搜索结果</li>
             </ul>
         </div>
@@ -26,6 +26,12 @@ export default {
             list:[],
             timer:null
             
+        }
+    },
+    methods:{
+        handleCity (city) {
+            // this.$store.dispatch('changeCity',city)
+            this.$store.commit('changeCity',city)
         }
     },
      mounted () {
